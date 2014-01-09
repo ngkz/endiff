@@ -10,6 +10,7 @@ def prettify_enex(path):
         note = xml.dom.minidom.parseString(content_node.firstChild.data)
         content_node.firstChild.data = note.toprettyxml()
     tmp = tempfile.NamedTemporaryFile()
+    tmp.write(("original file: " + path  + "\n").encode("utf-8"))
     tmp.write(enex.toprettyxml().encode("utf-8"));
     return tmp
 
